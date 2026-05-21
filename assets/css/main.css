@@ -1298,7 +1298,7 @@ html.is-drawer-open, html.is-drawer-open body { overflow: hidden; }
     padding-top: 160px;
   }
   .hero__bg { width: 800px; height: 838px; }
-  .hero__bg-pattern { right: -180px; top: 0; width: 500px; height: 701.558px; }
+  .hero__bg-pattern { right: -180px !important; top: 0 !important; left: auto !important; width: 500px !important; height: 701.558px !important; }
   .hero__bg-blur {
     left: calc(50% - 439.15px);
     top: -599px;
@@ -1306,28 +1306,52 @@ html.is-drawer-open, html.is-drawer-open body { overflow: hidden; }
     height: 1098.329px;
   }
 
+  /* Light rays — repositioned for the 800px mobile frame (Figma mobile coords) */
+  .hero__bg-light--back  img:nth-child(1) { left: 522.17px !important; top: -303.73px !important; width: 355.034px !important; height: 438.295px !important; }
+  .hero__bg-light--back  img:nth-child(2) { left: 627.42px !important; top: -303.73px !important; width: 232.5px   !important; height: 287.484px !important; }
+  .hero__bg-light--back  img:nth-child(3) { left: 672.98px !important; top: -303.73px !important; width: 178.303px !important; height: 220.718px !important; }
+  .hero__bg-light--front img:nth-child(1) { left: 336.8px  !important; top: -343px    !important; width: 440.651px !important; height: 584px    !important; }
+  .hero__bg-light--front img:nth-child(2) { left: 467.19px !important; top: -343px    !important; width: 289.054px !important; height: 383.087px !important; }
+  .hero__bg-light--front img:nth-child(3) { left: 523.74px !important; top: -343px    !important; width: 221.504px !important; height: 293.767px !important; }
+
+  /* Dots — Figma mobile coords (subtract ~442 from desktop x) */
+  .hero__bg-dots i:nth-child(1)  { left: 401px !important; top: 111px !important; }
+  .hero__bg-dots i:nth-child(2)  { left: 261px !important; top: 111px !important; }
+  .hero__bg-dots i:nth-child(3)  { left: 312px !important; top: 168px !important; }
+  .hero__bg-dots i:nth-child(4)  { left: 457px !important; top: 47px  !important; }
+  .hero__bg-dots i:nth-child(5)  { left: 497px !important; top: 88px  !important; }
+  .hero__bg-dots i:nth-child(6)  { left: 597px !important; top: 28px  !important; }
+  .hero__bg-dots i:nth-child(7)  { left: 507px !important; top: 179px !important; }
+  .hero__bg-dots i:nth-child(8)  { left: 427px !important; top: 17px  !important; }
+  .hero__bg-dots i:nth-child(9)  { left: 347px !important; top: 47px  !important; }
+  .hero__bg-dots i:nth-child(10) { left: 247px !important; top: 77px  !important; }
+  .hero__bg-dots i:nth-child(11) { left: 206px !important; top: 189px !important; }
+  .hero__bg-dots i:nth-child(12) { left: 202px !important; top: 275px !important; }
+
   .hero__row { flex-direction: column; gap: 24px; align-items: flex-start; }
   .hero__copy { max-width: 100%; width: 100%; gap: 16px; }
   .hero__title { width: 100%; }
   .hero__title .t-sans, .hero__title .t-serif { font-size: 36px; }
   .hero__lede { max-width: 100%; width: 100%; font-size: 18px; }
 
-  /* vtag becomes horizontal on mobile */
-  .vtag {
+  /* vtag HORIZONTAL only inside hero (per Figma mobile);
+     other sections keep vertical narrow aside */
+  .hero .vtag {
     flex-direction: row;
     width: 100%;
     height: auto;
     align-self: auto;
     gap: 8px;
     align-items: center;
+    justify-content: flex-start;
   }
-  .vtag__group { flex-direction: row; gap: 8px; }
-  .vtag__label {
+  .hero .vtag__group { flex-direction: row; gap: 8px; }
+  .hero .vtag__label {
     writing-mode: horizontal-tb;
     transform: none;
     font-size: 14px;
   }
-  .vtag__line { width: 16px; height: 1px; }
+  .hero .vtag__line { width: 16px; height: 1px; }
 
   .hero__actions {
     flex-direction: column;
@@ -1370,8 +1394,15 @@ html.is-drawer-open, html.is-drawer-open body { overflow: hidden; }
   /* ---- DIFFERENTIALS ---- */
   .differentials { padding: var(--section-py) var(--section-px); }
   .differentials__shell { gap: 40px; }
-  .differentials__hero { flex-direction: column-reverse; gap: 24px; align-items: stretch; }
-  .differentials__copy { max-width: 100%; gap: 24px; }
+  /* Figma: copy à esquerda + vtag vertical 10px à direita */
+  .differentials__hero {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    align-items: stretch;
+  }
+  .differentials__copy { max-width: 100%; flex: 1; min-width: 0; gap: 24px; }
+  .differentials__hero > .vtag { width: 10px; flex-shrink: 0; align-self: stretch; }
   .differentials__copy .section-title .t-sans,
   .differentials__copy .section-title .t-serif { font-size: 32px; }
   .diff-grid {
