@@ -31,7 +31,8 @@
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; overflow-x: clip; }
+html, body { max-width: 100%; }
 body {
   font-family: var(--font-sans);
   font-size: 16px;
@@ -1349,12 +1350,17 @@ html.is-drawer-open, html.is-drawer-open body { overflow: hidden; }
   /* ---- ABOUT ---- */
   .about { padding: var(--section-py) var(--section-px); }
   .about__shell {
-    flex-direction: column;
-    gap: 40px;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 10px 1fr;
+    grid-template-areas:
+      "vtag copy"
+      "media media";
+    column-gap: 32px;
+    row-gap: 40px;
   }
-  .about__shell > .vtag { width: 100%; }
-  .about__copy { gap: 24px; }
+  .about__shell > .vtag { grid-area: vtag; width: 10px; align-self: stretch; }
+  .about__copy { grid-area: copy; gap: 24px; min-width: 0; }
+  .about__media { grid-area: media; max-width: 100%; width: 100%; }
   .about__copy .section-title .t-sans,
   .about__copy .section-title .t-serif { font-size: 32px; }
   .about__body { font-size: 16px; }
@@ -1377,9 +1383,9 @@ html.is-drawer-open, html.is-drawer-open body { overflow: hidden; }
 
   /* ---- STATS ---- */
   .stats { padding: var(--section-py) var(--section-px); }
-  .stats__shell { gap: 24px; }
-  .stats__shell > .vtag { width: 100%; align-self: auto; }
-  .stats__main { gap: 40px; }
+  .stats__shell { gap: 32px; flex-direction: row; align-items: stretch; }
+  .stats__shell > .vtag { width: 10px; align-self: stretch; flex-shrink: 0; }
+  .stats__main { gap: 40px; min-width: 0; flex: 1; }
   .stats__main .section-title .t-sans,
   .stats__main .section-title .t-serif { font-size: 32px; }
   .stats__panel { flex-direction: column; padding: 16px; gap: 16px; }
@@ -1406,13 +1412,16 @@ html.is-drawer-open, html.is-drawer-open body { overflow: hidden; }
 
   /* ---- AREAS ---- */
   .areas { padding: var(--section-py) var(--section-px); }
-  .areas__shell { flex-direction: column; gap: 40px; }
-  .areas__hero { flex-direction: column-reverse; gap: 24px; align-self: auto; align-items: stretch; }
+  .areas__shell { flex-direction: column; gap: 40px; align-items: stretch; }
+  .areas__hero { display: flex; gap: 32px; align-self: auto; align-items: stretch; }
   .areas__copy {
-    width: 100%;
+    width: auto;
+    flex: 1;
+    min-width: 0;
     position: static;
     gap: 24px;
   }
+  .areas__hero > .vtag { order: 2; width: 10px; flex-shrink: 0; align-self: stretch; }
   .areas__copy .section-title .t-sans,
   .areas__copy .section-title .t-serif { font-size: 32px; }
   .areas__list { gap: 16px; }
