@@ -908,7 +908,7 @@ a { transition: color .2s ease, opacity .2s ease; }
   gap: 32px;
   width: 425px;
   position: sticky;
-  top: 32px;
+  top: 200px;
   align-self: flex-start;
 }
 .areas__copy .section-title { font-size: 0; }
@@ -927,7 +927,7 @@ a { transition: color .2s ease, opacity .2s ease; }
   flex-direction: column;
   justify-content: space-between;
   position: sticky;
-  top: 32px;
+  top: 200px;
 }
 .area-item img { width: 32px; height: 32px; }
 .area-item h3 {
