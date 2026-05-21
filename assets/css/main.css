@@ -1479,11 +1479,15 @@ html.is-drawer-open, html.is-drawer-open body { overflow: hidden; }
     gap: 16px;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    padding: 0 var(--section-px);
+    /* alinha primeiro card com a hero (16px) e deixa peek do próximo */
+    padding-left: var(--section-px);
+    padding-right: max(var(--section-px), 18%);
   }
   .blog__grid::-webkit-scrollbar { display: none; }
   .post-card {
-    flex: 0 0 calc(100vw - 56px);
+    flex: 0 0 86vw;
+    max-width: 327px;
+    min-width: 280px;
     scroll-snap-align: start;
   }
   .post-card__title { font-size: 22px; }
