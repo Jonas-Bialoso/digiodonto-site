@@ -1430,10 +1430,15 @@ html.is-drawer-open, html.is-drawer-open body { overflow: hidden; }
 
   /* ---- SOLUTIONS ---- */
   .solutions__hero-wrap { padding: 0 var(--section-px); }
-  .solutions__hero { flex-direction: row; align-items: flex-end; gap: 16px; justify-content: space-between; }
-  .solutions__title { width: auto; min-width: 0; max-width: 100%; flex: 1 1 auto; }
+  /* Figma mobile: título em cima full-width, arrows embaixo alinhadas à esquerda */
+  .solutions__hero {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+  .solutions__title { width: 100%; min-width: 0; max-width: 100%; flex: 0 0 auto; }
   .solutions__title .t-sans, .solutions__title .t-serif { font-size: 32px; }
-  .solutions__arrows { display: flex; flex-shrink: 0; }
+  .solutions__arrows { display: flex; align-self: flex-start; }
   .sol-card { width: calc(100vw - 56px); }
   .solutions__scroller {
     padding-left: var(--section-px);
