@@ -7,9 +7,53 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css?v=7">
+<link rel="stylesheet" href="assets/css/main.css?v=22">
 </head>
 <body>
+
+<!-- ================= GLOBAL HEADER (fixed, hides on scroll-down) ================= -->
+<header class="site-header" id="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="#" aria-label="DigiOdonto — início">
+      <img src="assets/images/logo-digiodonto.svg" alt="DigiOdonto" width="190" height="32">
+    </a>
+    <nav class="site-nav" aria-label="Principal">
+      <ul class="site-nav__list">
+        <li><a href="#" class="site-nav__link is-active">Início</a></li>
+        <li><a href="#about" class="site-nav__link">Sobre</a></li>
+        <li><a href="#solutions" class="site-nav__link">Soluções</a></li>
+        <li><a href="#blog" class="site-nav__link">Blog</a></li>
+      </ul>
+      <a href="#cta" class="btn btn--contact">
+        <span>Contato</span>
+        <span class="btn__icon-sm"><svg width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M.75 6h12.5m0 0L8.25 1m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </nav>
+    <!-- Mobile burger (visible only < 900px) -->
+    <button class="site-burger" id="site-burger" aria-label="Abrir menu" aria-expanded="false" type="button">
+      <span class="site-burger__lines" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile drawer (off-canvas) -->
+<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+  <div class="mobile-drawer__panel">
+    <ul class="mobile-drawer__list">
+      <li><a href="#" class="mobile-drawer__link" data-close>Início</a></li>
+      <li><a href="#about" class="mobile-drawer__link" data-close>Sobre</a></li>
+      <li><a href="#solutions" class="mobile-drawer__link" data-close>Soluções</a></li>
+      <li><a href="#blog" class="mobile-drawer__link" data-close>Blog</a></li>
+    </ul>
+    <a href="#cta" class="btn btn--primary mobile-drawer__cta" data-close>
+      <span>Contato</span>
+      <span class="btn__icon"><svg width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M.75 6h12.5m0 0L8.25 1m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+  </div>
+  <button class="mobile-drawer__backdrop" id="mobile-drawer-backdrop" aria-label="Fechar menu" type="button"></button>
+</div>
 
 <!-- ================= HERO ================= -->
 <section class="hero" aria-labelledby="hero-title" data-node-id="7010:280">
@@ -32,24 +76,6 @@
   </div>
 
   <div class="hero__shell">
-    <header class="site-header">
-      <a class="site-header__brand" href="#" aria-label="DigiOdonto — início">
-        <img src="assets/images/logo-digiodonto.svg" alt="DigiOdonto" width="190" height="32">
-      </a>
-      <nav class="site-nav" aria-label="Principal">
-        <ul class="site-nav__list">
-          <li><a href="#" class="site-nav__link is-active">Início</a></li>
-          <li><a href="#about" class="site-nav__link">Sobre</a></li>
-          <li><a href="#solutions" class="site-nav__link">Soluções</a></li>
-          <li><a href="#blog" class="site-nav__link">Blog</a></li>
-        </ul>
-        <a href="#cta" class="btn btn--contact">
-          <span>Contato</span>
-          <span class="btn__icon-sm"><svg width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M.75 6h12.5m0 0L8.25 1m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </a>
-      </nav>
-    </header>
-
     <div class="hero__text">
       <div class="hero__row">
         <div class="hero__copy">
@@ -116,7 +142,7 @@
       </span>
       <span class="vtag__line"></span>
     </aside>
-    <div class="about__copy">
+    <div class="about__copy" data-reveal>
       <h2 class="section-title section-title--dark">
         <span class="t-sans">Especialistas em </span><em class="t-serif">crescimento</em><span class="t-sans"> para o mercado odontológico</span>
       </h2>
@@ -125,7 +151,7 @@
         <p>Com atuação nacional e experiência acumulada ao longo de mais de 9 anos, desenvolvemos estratégias que combinam <strong>tráfego pago, estrutura comercial e tecnologia</strong> para gerar resultados consistentes.</p>
       </div>
     </div>
-    <div class="about__media">
+    <div class="about__media" data-reveal data-reveal-delay="1">
       <img class="about__bg" src="assets/images/about/bg.png" alt="">
       <img class="about__selo" src="assets/images/about/selo.svg" alt="">
     </div>
@@ -135,7 +161,7 @@
 <!-- ================= DIFFERENTIALS (7033:207) ================= -->
 <section class="differentials" data-node-id="7033:207">
  <div class="shell differentials__shell">
-  <div class="differentials__hero">
+  <div class="differentials__hero" data-reveal>
     <div class="differentials__copy">
       <h2 class="section-title section-title--light">
         <span class="t-sans">O que </span><em class="t-serif">diferencia</em><span class="t-sans"> a DigiOdonto</span>
@@ -152,59 +178,40 @@
   </div>
 
   <div class="diff-grid">
-    <article class="diff-card">
+    <article class="diff-card" data-reveal>
       <div class="diff-card__head">
         <h3 class="diff-card__title">Experiência prática</h3>
-        <div class="diff-card__illus illus-1">
-          <img class="illus-1__v11" src="assets/images/differentials/illus1-v11.svg" alt="">
-          <div class="illus-1__rects">
-            <span class="illus-1__rect illus-1__rect--lg"></span>
-            <span class="illus-1__rect illus-1__rect--md"></span>
-            <span class="illus-1__rect illus-1__rect--sm"></span>
-          </div>
-          <img class="illus-1__v10" src="assets/images/differentials/illus1-v10.svg" alt="">
-        </div>
+        <div class="diff-card__illus"><img src="assets/images/differentials/illus-card-1.png" alt=""></div>
       </div>
       <div class="diff-card__body">
         <p>Mais de 900 clínicas e dentistas atendidos, além de vivência direta na gestão de clínicas.</p>
       </div>
     </article>
 
-    <article class="diff-card">
+    <article class="diff-card" data-reveal data-reveal-delay="1">
       <div class="diff-card__head">
         <h3 class="diff-card__title">Abordagem completa</h3>
-        <div class="diff-card__illus illus-2"><img src="assets/images/differentials/illus2-graph.svg" alt=""></div>
+        <div class="diff-card__illus"><img src="assets/images/differentials/illus-card-2.png" alt=""></div>
       </div>
       <div class="diff-card__body">
         <p>Integração entre marketing, atendimento e processo comercial.</p>
       </div>
     </article>
 
-    <article class="diff-card">
+    <article class="diff-card" data-reveal data-reveal-delay="2">
       <div class="diff-card__head">
         <h3 class="diff-card__title">Uso de tecnologia e IA</h3>
-        <div class="diff-card__illus illus-3">
-          <img class="illus-3__v12" src="assets/images/differentials/illus3-v12.svg" alt="">
-          <div class="illus-3__rects">
-            <span class="illus-3__rect illus-3__rect--a"></span>
-            <span class="illus-3__rect illus-3__rect--b"></span>
-            <span class="illus-3__rect illus-3__rect--c"></span>
-          </div>
-          <img class="illus-3__v13" src="assets/images/differentials/illus3-v13.svg" alt="">
-        </div>
+        <div class="diff-card__illus"><img src="assets/images/differentials/illus-card-3.png" alt=""></div>
       </div>
       <div class="diff-card__body">
         <p>Aplicação de ferramentas e soluções próprias para ganho de eficiência e conversão.</p>
       </div>
     </article>
 
-    <article class="diff-card">
+    <article class="diff-card" data-reveal data-reveal-delay="3">
       <div class="diff-card__head">
         <h3 class="diff-card__title">Acompanhamento contínuo</h3>
-        <div class="diff-card__illus illus-4">
-          <img class="illus-4__h" src="assets/images/differentials/illus4-h.svg" alt="">
-          <img class="illus-4__e" src="assets/images/differentials/illus4-e24.svg" alt="">
-        </div>
+        <div class="diff-card__illus"><img src="assets/images/differentials/illus-card-4.png" alt=""></div>
       </div>
       <div class="diff-card__body">
         <p>Análises frequentes e otimizações baseadas em dados reais.</p>
@@ -225,7 +232,7 @@
     <span class="vtag__line"></span>
   </aside>
 
-  <div class="stats__main">
+  <div class="stats__main" data-reveal>
     <h2 class="section-title section-title--light">
       <span class="t-sans">Experiência </span><em class="t-serif">consolidada</em><span class="t-sans"> em resultados</span>
     </h2>
@@ -237,9 +244,7 @@
           <p class="stats__small">gerado em faturamento para clientes</p>
         </div>
         <div class="stats__graph">
-          <img class="stats__stroke" src="assets/images/stats/stroke.svg" alt="">
-          <img class="stats__stroke-fill" src="assets/images/stats/stroke-fill.svg" alt="">
-          <span class="stats__dot"></span>
+          <img src="assets/images/stats/graph.png" alt="">
         </div>
       </div>
       <div class="stats__right">
@@ -264,7 +269,7 @@
 <!-- ================= SOLUTIONS (7042:20) ================= -->
 <section class="solutions" id="solutions" data-node-id="7042:20">
  <div class="solutions__hero-wrap">
-  <div class="shell solutions__hero">
+  <div class="shell solutions__hero" data-reveal>
     <h2 class="section-title section-title--light solutions__title">
       <span class="t-sans">Soluções integradas para o </span><em class="t-serif">crescimento</em><span class="t-sans"> da sua clínica</span>
     </h2>
@@ -276,35 +281,35 @@
  </div>
 
  <div class="solutions__scroller">
-    <div class="sol-card">
+    <div class="sol-card" data-reveal>
       <div class="sol-card__head"><img class="sol-card__bg" src="assets/images/solutions/card-bg.png" alt=""><img class="sol-card__icon" src="assets/images/solutions/icon-rocket.svg" alt=""></div>
       <div class="sol-card__body">
         <h3 class="sol-card__title">Tráfego Pago</h3>
         <p>Gestão de campanhas em Meta Ads e Google Ads com foco em geração de leads qualificados.</p>
       </div>
     </div>
-    <div class="sol-card">
+    <div class="sol-card" data-reveal>
       <div class="sol-card__head"><img class="sol-card__bg" src="assets/images/solutions/card-bg.png" alt=""><img class="sol-card__icon" src="assets/images/solutions/icon-tree.svg" alt=""></div>
       <div class="sol-card__body">
         <h3 class="sol-card__title">Estrutura Comercial (CRC)</h3>
         <p>Apoio na organização do atendimento e conversão de leads em pacientes.</p>
       </div>
     </div>
-    <div class="sol-card">
+    <div class="sol-card" data-reveal>
       <div class="sol-card__head"><img class="sol-card__bg" src="assets/images/solutions/card-bg.png" alt=""><img class="sol-card__icon" src="assets/images/solutions/icon-crosshair.svg" alt=""></div>
       <div class="sol-card__body">
         <h3 class="sol-card__title">Consultoria Estratégica</h3>
         <p>Acompanhamento próximo com foco em crescimento e aumento de faturamento.</p>
       </div>
     </div>
-    <div class="sol-card">
+    <div class="sol-card" data-reveal>
       <div class="sol-card__head"><img class="sol-card__bg" src="assets/images/solutions/card-bg.png" alt=""><img class="sol-card__icon" src="assets/images/solutions/icon-sparkle.svg" alt=""></div>
       <div class="sol-card__body">
         <h3 class="sol-card__title">Tecnologia e Inteligência Artificial</h3>
         <p>Uso de soluções próprias para otimizar processos e melhorar a performance.</p>
       </div>
     </div>
-    <div class="sol-card">
+    <div class="sol-card" data-reveal>
       <div class="sol-card__head"><img class="sol-card__bg" src="assets/images/solutions/card-bg.png" alt=""><img class="sol-card__icon" src="assets/images/solutions/icon-cards.svg" alt=""></div>
       <div class="sol-card__body">
         <h3 class="sol-card__title">Landing Pages</h3>
@@ -317,7 +322,7 @@
 <!-- ================= AREAS (7045:205) ================= -->
 <section class="areas" data-node-id="7045:205">
  <div class="shell areas__shell">
-  <div class="areas__hero">
+  <div class="areas__hero" data-reveal>
     <div class="areas__copy">
       <h2 class="section-title section-title--dark">
         <span class="t-sans">Como </span><em class="t-serif">atuamos</em><span class="t-sans"> junto à sua clínica</span>
@@ -346,14 +351,14 @@
 <!-- ================= BLOG (7045:228) ================= -->
 <section class="blog" id="blog" data-node-id="7045:228">
  <div class="shell blog__shell">
-  <div class="blog__hero">
+  <div class="blog__hero" data-reveal>
     <h2 class="section-title section-title--dark">
       <em class="t-serif">Conteúdos</em><span class="t-sans"> sobre marketing e crescimento para clínicas odontológicas</span>
     </h2>
     <p class="section-lede section-lede--dark">Acompanhe insights, estratégias e boas práticas sobre performance digital, captação de pacientes e estruturação comercial para clínicas odontológicas.</p>
   </div>
   <div class="blog__grid">
-    <article class="post-card">
+    <article class="post-card" data-reveal>
       <a class="post-card__media" href="#"><img src="assets/images/blog/img-1.png" alt=""></a>
       <div class="post-card__tag"><span class="dot"></span><span>CATEGORIA</span></div>
       <h3 class="post-card__title">Como atrair pacientes particulares para sua clínica odontológica</h3>
@@ -361,7 +366,7 @@
         <svg width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M.75 6h12.5m0 0L8.25 1m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </article>
-    <article class="post-card">
+    <article class="post-card" data-reveal>
       <a class="post-card__media" href="#"><img src="assets/images/blog/img-2.png" alt=""></a>
       <div class="post-card__tag"><span class="dot"></span><span>CATEGORIA</span></div>
       <h3 class="post-card__title">Por que sua clínica recebe leads, mas não agenda consultas</h3>
@@ -369,7 +374,7 @@
         <svg width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M.75 6h12.5m0 0L8.25 1m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </article>
-    <article class="post-card">
+    <article class="post-card" data-reveal>
       <a class="post-card__media" href="#"><img src="assets/images/blog/img-3.png" alt=""></a>
       <div class="post-card__tag"><span class="dot"></span><span>CATEGORIA</span></div>
       <h3 class="post-card__title">Tráfego pago para dentistas: o que considerar antes de investir</h3>
@@ -397,7 +402,7 @@
       <i style="left:1350px;top:111px"></i><i style="left:1210px;top:111px"></i><i style="left:1261px;top:168px"></i><i style="left:1406px;top:47px"></i><i style="left:1446px;top:88px"></i><i style="left:1546px;top:28px"></i><i style="left:1456px;top:179px"></i><i style="left:1376px;top:17px"></i><i style="left:1296px;top:47px"></i><i style="left:1196px;top:77px"></i><i style="left:1155px;top:189px"></i><i style="left:1151px;top:275px"></i>
     </div>
   </div>
-  <div class="cta__inner">
+  <div class="cta__inner" data-reveal>
     <h2 class="cta__title">
       <span class="t-sans">Pronto para estruturar o </span><em class="t-serif">crescimento</em><span class="t-sans"> da sua clínica?</span>
     </h2>
@@ -463,6 +468,7 @@
 </footer>
 
 <script>
+  /* ----- Solutions carousel ----- */
   (function () {
     var scroller = document.querySelector('.solutions__scroller');
     var prev = document.querySelector('.sol-arrow--prev');
@@ -480,6 +486,111 @@
     scroller.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
     update();
+  })();
+
+  /* ----- Scroll reveal (fade-up) ----- */
+  (function () {
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ----- Sticky header: hide on scroll-down, show on scroll-up, theme on light sections ----- */
+  (function () {
+    var header = document.getElementById('site-header');
+    if (!header) return;
+
+    /* hide / show by scroll direction */
+    var lastY = window.scrollY;
+    var ticking = false;
+    function onScroll() {
+      var y = window.scrollY;
+      if (Math.abs(y - lastY) < 6) { ticking = false; return; }
+      header.classList.toggle('is-scrolled', y > 24);
+      if (y > lastY && y > 120) {
+        header.classList.add('is-hidden');
+      } else {
+        header.classList.remove('is-hidden');
+      }
+      lastY = y;
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+    }, { passive: true });
+
+    if (!('IntersectionObserver' in window)) return;
+
+    /* theme: invert header colors over light sections */
+    var lightSections = document.querySelectorAll('.about, .areas, .blog');
+    if (lightSections.length) {
+      var lightHit = 0;
+      var themeIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { lightHit += e.isIntersecting ? 1 : -1; });
+        header.classList.toggle('is-light', lightHit > 0);
+      }, { rootMargin: '-80px 0px -55% 0px', threshold: 0 });
+      lightSections.forEach(function (s) { themeIo.observe(s); });
+    }
+
+    /* scroll-spy: which nav link is .is-active */
+    var hero = document.querySelector('.hero');
+    var spyMap = [];
+    document.querySelectorAll('.site-nav__link').forEach(function (link) {
+      var href = link.getAttribute('href');
+      var sec = (href === '#') ? hero : document.querySelector(href);
+      if (sec) spyMap.push({ link: link, section: sec });
+    });
+    if (!spyMap.length) return;
+    var spyIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          spyMap.forEach(function (m) {
+            m.link.classList.toggle('is-active', m.section === entry.target);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    spyMap.forEach(function (m) { spyIo.observe(m.section); });
+  })();
+
+  /* ----- Mobile burger / drawer ----- */
+  (function () {
+    var burger = document.getElementById('site-burger');
+    var drawer = document.getElementById('mobile-drawer');
+    var backdrop = document.getElementById('mobile-drawer-backdrop');
+    if (!burger || !drawer) return;
+    function open() {
+      drawer.classList.add('is-open');
+      document.documentElement.classList.add('is-drawer-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      burger.setAttribute('aria-expanded', 'true');
+    }
+    function close() {
+      drawer.classList.remove('is-open');
+      document.documentElement.classList.remove('is-drawer-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+    burger.addEventListener('click', function () {
+      drawer.classList.contains('is-open') ? close() : open();
+    });
+    if (backdrop) backdrop.addEventListener('click', close);
+    drawer.querySelectorAll('[data-close]').forEach(function (el) {
+      el.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) close();
+    });
   })();
 </script>
 </body>
